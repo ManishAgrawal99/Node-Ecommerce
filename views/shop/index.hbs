@@ -1,103 +1,18 @@
 <div class="row">
+    {{#each products}}
     <div class="col-sm-6 col-md-4 mt-3">
         <div class="card" style="width: 18rem;">
-            <img src="https://files.gamebanana.com/img/ss/gamefiles/52c4cb9b0ef51.jpg"
+            <img src="{{ this.imagePath }}"
                 class="card-img-top img-responsive" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <span>Price: $12</span>
+                <h5 class="card-title">{{ this.title }}</h5>
+                <p class="card-text">{{ this.description }}</p>
+                <span>Price: ${{ this.price }}</span>
                 <span class="ml-auto">
                     <a href="#" class="btn btn-primary">Buy</a>
                 </span>
             </div>
         </div>
     </div>
-
-    <div class="col-sm-6 col-md-4 mt-3">
-        <div class="card" style="width: 18rem;">
-            <img src="https://files.gamebanana.com/img/ss/gamefiles/52c4cb9b0ef51.jpg"
-                class="card-img-top img-responsive" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <span>Price: $12</span>
-                <span class="ml-auto">
-                    <a href="#" class="btn btn-primary">Buy</a>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 mt-3">
-        <div class="card" style="width: 18rem;">
-            <img src="https://files.gamebanana.com/img/ss/gamefiles/52c4cb9b0ef51.jpg"
-                class="card-img-top img-responsive" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <span>Price: $12</span>
-                <span class="ml-auto">
-                    <a href="#" class="btn btn-primary">Buy</a>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 mt-3">
-        <div class="card" style="width: 18rem;">
-            <img src="https://files.gamebanana.com/img/ss/gamefiles/52c4cb9b0ef51.jpg"
-                class="card-img-top img-responsive" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <span>Price: $12</span>
-                <span class="ml-auto">
-                    <a href="#" class="btn btn-primary">Buy</a>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 mt-3">
-        <div class="card" style="width: 18rem;">
-            <img src="https://files.gamebanana.com/img/ss/gamefiles/52c4cb9b0ef51.jpg"
-                class="card-img-top img-responsive" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <span>Price: $12</span>
-                <span class="ml-auto">
-                    <a href="#" class="btn btn-primary">Buy</a>
-                </span>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6 col-md-4 mt-3">
-        <div class="card" style="width: 18rem;">
-            <img src="https://files.gamebanana.com/img/ss/gamefiles/52c4cb9b0ef51.jpg"
-                class="card-img-top img-responsive" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <span>Price: $12</span>
-                <span class="ml-auto">
-                    <a href="#" class="btn btn-primary">Buy</a>
-                </span>
-            </div>
-        </div>
-    </div>
+    {{/each}}
 </div>
