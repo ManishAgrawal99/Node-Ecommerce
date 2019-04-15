@@ -3,11 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 var expressHbs = require('express-handlebars');
+var mongoose = require('mongoose'); 
 
 var indexRouter = require('./routes/index');
 
 var app = express();
+
+//Connect to MongoDB server
+mongoose.connect('mongodb://localhost:27017/shopping', {useNewUrlParser: true } );
 
 // view engine setup
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
