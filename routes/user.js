@@ -8,6 +8,8 @@ var passport = require('passport');
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
+var Cart = require('../models/cart');
+var Order = require('../models/order');
 
 router.get('/signup', notLoggedIn, function(req, res, next){
     var messages = req.flash('error');
@@ -56,7 +58,18 @@ router.get('/logout', isLoggedIn, function(req, res, next){
 });
 
 router.get('/profile', isLoggedIn,  function(req, res, next){
-    res.render('user/profile');
+    Order.find({user: req.user}, function(err, orders){
+        if(err){
+            return res.write('Error fetching User Details!');
+        }
+        var cart;
+        orders.forEach(function(order){
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+        });
+        console.log(orders);
+        res.render('user/profile',{orders: orders});   
+    });
 })
 
 module.exports = router;

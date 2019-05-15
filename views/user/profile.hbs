@@ -1,1 +1,25 @@
-<h1>User Profile Page</h1>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>User Profile</h1>
+        <hr>
+        <h2 class="mb-3">My Orders</h2>
+
+        {{#each orders}}
+        <div class="card mt-5">
+            <h5 class="card-header">
+                <ul class="list-group">
+                    {{#each this.items}}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{this.item.title}} | {{this.qty}}
+                        <span class="badge badge-primary badge-pill">{{this.price}}</span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </h5>
+            <div class="card-body">
+                <h5 class="card-title">Total: ${{this.cart.totalPrice}}</h5>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
