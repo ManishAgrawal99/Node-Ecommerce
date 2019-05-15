@@ -16,10 +16,18 @@ router.get('/signup', notLoggedIn, function(req, res, next){
 });
 
 router.post('/signup', notLoggedIn, passport.authenticate('local.signup', {
-    successRedirect: '/user/profile',
     failureRedirect: '/user/signup',
     failureFlash: true
-}));
+}), function(req, res, next){
+    if(req.session.oldUrl){
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    }
+    else{
+        res.redirect('/user/profile');
+    }
+});
 
 router.get('/signin', notLoggedIn, function(req, res, next){
     var messages = req.flash('error');
@@ -28,10 +36,18 @@ router.get('/signin', notLoggedIn, function(req, res, next){
 });
 
 router.post('/signin', notLoggedIn, passport.authenticate('local.signin', {
-    successRedirect: '/user/profile',
     failureRedirect: '/user/signin',
     failureFlash: true
-}));
+}), function(req, res, next){
+    if(req.session.oldUrl){
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    }
+    else{
+        res.redirect('/user/profile');
+    }
+});
 
 router.get('/logout', isLoggedIn, function(req, res, next){
     //logout() method given by passport
